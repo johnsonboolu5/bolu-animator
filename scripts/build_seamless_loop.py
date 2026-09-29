@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
-build_seamless_loop.py: rebuild a clip as a true seamless loop.
+build_seamless_loop.py: cut a shot down to a clean loop.
 
-Takes the matching frame pair found by find_loop_point.py and re-encodes
-just that range. The output's last frame flows into its first frame
-because they're (nearly) the same pose. The loop point is invisible
-with no crossfade and no cut.
+Takes the matching frame pair found by find_loop_point.py and cuts just
+that range. The output's last frame flows into its first frame because
+they're (nearly) the same pose. The loop point is invisible with no
+crossfade and no blending.
 
 Usage:
     python build_seamless_loop.py input.mp4 24 216 -o typing-seamless.mp4

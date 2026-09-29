@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 """
-find_loop_point.py: find two frames inside a clip that match closely enough
-to form a true seamless loop.
+find_loop_point.py: find two frames inside a shot that match closely enough
+to loop clean.
 
-The problem: a looping clip blinks when its last frame doesn't match its
-first. Crossfading hides the blink but looks mushy.
+The problem: a looping shot pops when its last frame doesn't match its
+first. Crossfading hides it but goes mushy.
 
-The insight: periodic motion (typing, breathing, idle sway) repeats poses
-*inside* the clip. If you find two matching frames in the middle of the
-motion, you can cut the clip to just that range. The end of the loop
-genuinely continues into the start. No seam, because there's nothing to seam.
+The fix: periodic motion (typing, breathing, idle sway) repeats poses
+*inside* the shot. Find two matching frames in the middle of the motion
+and cut the shot to just that range. The end of the cycle genuinely
+continues into the start. No seam, because there's nothing to seam.
 
 Method:
     1. Extract every frame with ffmpeg.
